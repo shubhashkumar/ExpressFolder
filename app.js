@@ -1,5 +1,5 @@
-const express= require('express');
-const app=  express();
+const express = require("express");
+const app = express();
 //Create Your Own Middleware and Routing
 /*
 app.use("/welcome",(req,res,next)=>
@@ -11,35 +11,60 @@ app.use("/welcome",(req,res,next)=>
 })
 */
 //Question-Routes
+/*
 //1.get orders
-app.get("/orders",(req,res,next)=>
-  {
-     res.send(`
+app.get("/orders", (req, res, next) => {
+  res.send(`
      Here is the list of all orders.`);
-  })
+});
 //2.post orders
 //1.get orders
-app.post("/orders",(req,res,next)=>
-  {
-     res.send(`
+app.post("/orders", (req, res, next) => {
+  res.send(`
      A new order has been created.`);
-  })
-  //1.get users
-app.get("/users",(req,res,next)=>
-  {
-     res.send(`
+});
+//1.get users
+app.get("/users", (req, res, next) => {
+  res.send(`
      Here is the list of all users.`);
-  })
+});
 //2.post users
 //1.get users
-app.post("/users",(req,res,next)=>
-  {
-     res.send(`
+app.post("/users", (req, res, next) => {
+  res.send(`
      A new user has been created.`);
-  })
-
-const PORT=3000;
-app.listen(PORT,()=>
-{
-  console.log( "Server is up and running on port 3000! Ready to handle requests." );
-})
+});
+*/
+//Unknown route
+//1.get products
+app.get("/products", (req, res, next) => {
+  res.send(`
+     Here is the list of all products.`);
+});
+//2.post orders
+//1.get orders
+app.post("/products", (req, res, next) => {
+  res.send(`
+     A new products has been added.`);
+});
+//1.get users
+app.get("/categories", (req, res, next) => {
+  res.send(`
+     Here is the list of all categories.`);
+});
+//2.post users
+//1.get users
+app.post("/categories", (req, res, next) => {
+  res.send(`
+     A new categories has been created.`);
+});
+app.use("*", (req, res, next) => {
+  res.status = 404;
+  res.send(`<h1>${res.status} - Page Not Found</h1> `);
+});
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(
+    "Server is up and running on port 3000! Ready to handle requests."
+  );
+});
