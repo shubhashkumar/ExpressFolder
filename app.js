@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const ordersRouter= require("./routes/order");
+app.use("/orders",ordersRouter);
 //Create Your Own Middleware and Routing
 /*
 app.use("/welcome",(req,res,next)=>
@@ -64,7 +66,7 @@ app.get("*", (req, res, next) => {
 });
 */
 
-//Challenge- Create a Server with Middleware for Logging
+/*Challenge- Create a Server with Middleware for Logging
 //1.get products
 app.get("/products", (req, res, next) => {
   console.log(req.method,req.url);
@@ -96,9 +98,10 @@ app.get("*", (req, res, next) => {
  console.log(req.method,req.url);
   res.status(404).send(`<h1> 404 -Page Not Found</h1> `);
 });
+*/
 const PORT = 4000;
 app.listen(PORT, () => {
   console.log(
-    "Server is up and running on port 3000! Ready to handle requests."
+    "Server is up and running on port 4000! Ready to handle requests."
   );
 });
