@@ -2,8 +2,10 @@ const express = require("express");
 const app = express();
 const ordersRouter= require("./routes/order");
 const bookLib= require("./routes/bookLibrary");
+const studentCourses= require("./routes/studentAndcourse");
+app.use(studentCourses);
 //app.use("/orders",ordersRouter);
-app.use("/books",bookLib)
+//app.use("/books",bookLib)
 //Create Your Own Middleware and Routing
 /*
 app.use("/welcome",(req,res,next)=>
