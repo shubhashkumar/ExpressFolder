@@ -12,9 +12,11 @@ const cartRouter=require("./routes/cartRoutes");
 const Euser = require("./routes/usersRoute");
 const Eproduct = require("./routes/productsRoute");
 const Ecart = require("./routes/cartRoutes");
+const apiProduct=require("./routes/htmlProductReq");
 app.use(Euser);
 app.use(Eproduct);
 app.use(Ecart);
+app.use(apiProduct);
 //Create Your Own Middleware and Routing
 /*
 app.use("/welcome",(req,res,next)=>
@@ -117,7 +119,7 @@ app.get("*", (req, res, next) => {
   console.log(req.method,req.url);
    res.status(404).send(`<h1> 404 -Page Not Found</h1> `);
  });
- 
+
 const PORT = 4000;
 app.listen(PORT, () => {
   console.log(
