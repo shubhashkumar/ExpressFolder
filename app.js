@@ -1,11 +1,20 @@
 const express = require("express");
 const app = express();
-const ordersRouter= require("./routes/order");
-const bookLib= require("./routes/bookLibrary");
-const studentCourses= require("./routes/studentAndcourse");
-app.use(studentCourses);
+// const ordersRouter= require("./routes/order");
+// const bookLib= require("./routes/bookLibrary");
+// const studentCourses= require("./routes/studentAndcourse");
+// app.use(studentCourses);
 //app.use("/orders",ordersRouter);
-//app.use("/books",bookLib)
+//app.use("/books",bookLib);
+const userRouter=require("./routes/usersRoute");
+const productRouter=require("./routes/productsRoute");
+const cartRouter=require("./routes/cartRoutes");
+const Euser = require("./routes/usersRoute");
+const Eproduct = require("./routes/productsRoute");
+const Ecart = require("./routes/cartRoutes");
+app.use(Euser);
+app.use(Eproduct);
+app.use(Ecart);
 //Create Your Own Middleware and Routing
 /*
 app.use("/welcome",(req,res,next)=>
@@ -103,6 +112,12 @@ app.get("*", (req, res, next) => {
   res.status(404).send(`<h1> 404 -Page Not Found</h1> `);
 });
 */
+app.get("*", (req, res, next) => {
+  // res.status = 404;
+  console.log(req.method,req.url);
+   res.status(404).send(`<h1> 404 -Page Not Found</h1> `);
+ });
+ 
 const PORT = 4000;
 app.listen(PORT, () => {
   console.log(
