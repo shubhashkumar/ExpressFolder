@@ -6,17 +6,19 @@ const app = express();
 // app.use(studentCourses);
 //app.use("/orders",ordersRouter);
 //app.use("/books",bookLib);
-const userRouter=require("./routes/usersRoute");
-const productRouter=require("./routes/productsRoute");
-const cartRouter=require("./routes/cartRoutes");
-const Euser = require("./routes/usersRoute");
-const Eproduct = require("./routes/productsRoute");
-const Ecart = require("./routes/cartRoutes");
-const apiProduct=require("./routes/htmlProductReq");
-app.use(Euser);
-app.use(Eproduct);
-app.use(Ecart);
-app.use(apiProduct);
+//const userRouter=require("./routes/usersRoute");
+//const productRouter=require("./routes/productsRoute");
+//const cartRouter=require("./routes/cartRoutes");
+//const Euser = require("./routes/usersRoute");
+//const Eproduct = require("./routes/productsRoute");
+//const Ecart = require("./routes/cartRoutes");
+//const apiProduct=require("./routes/htmlProductReq");
+const getHtml2Products= require("./routes/getHtml2");
+//app.use(Euser);
+//app.use(Eproduct);
+//app.use(Ecart);
+//app.use(apiProduct);
+app.use(getHtml2Products);
 //Create Your Own Middleware and Routing
 /*
 app.use("/welcome",(req,res,next)=>
