@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+
 // const ordersRouter= require("./routes/order");
 // const bookLib= require("./routes/bookLibrary");
 // const studentCourses= require("./routes/studentAndcourse");
@@ -13,12 +14,16 @@ const app = express();
 //const Eproduct = require("./routes/productsRoute");
 //const Ecart = require("./routes/cartRoutes");
 //const apiProduct=require("./routes/htmlProductReq");
-const getHtml2Products= require("./routes/getHtml2");
+//const getHtml2Products= require("./routes/getHtml2");
+const postReqRoute=require("./routes/postRequestRouter");
 //app.use(Euser);
 //app.use(Eproduct);
 //app.use(Ecart);
 //app.use(apiProduct);
-app.use(getHtml2Products);
+//app.use(getHtml2Products);
+app.use(express.static('public'));
+app.use(express.json());
+app.use(postReqRoute);
 //Create Your Own Middleware and Routing
 /*
 app.use("/welcome",(req,res,next)=>
